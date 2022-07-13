@@ -33,7 +33,11 @@ async function getUserValue(e) {
   e.preventDefault();
   galleryEl.innerHTML = '';
   nameImg = e.target.elements.searchQuery.value.trim();
-  if (!nameImg) return;
+  if (!nameImg) {
+    Notify.warning('Sorry, add text.');
+    btnEl.classList.add('hidden');
+    return;
+  }
   page = 1;
 
   try {
